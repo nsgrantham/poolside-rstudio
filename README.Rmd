@@ -1,0 +1,29 @@
+---
+title: "Poolside"
+description: |
+  An RStudio theme inspired by poolside.fm
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+_A virtual vacation where the sun never sets._
+
+![poolside.rstheme and poolside.fm](poolside.png)
+
+## Dive in
+
+```{r}
+# install.packages("rstudioapi")
+library(rstudioapi)
+poolside <- "https://github.com/nsgrantham/poolside-rstudio/blob/master/poolside.rstheme"
+addTheme(poolside, apply = TRUE, force = TRUE)
+```
+
+## Dry off
+
+```{r results='hide'}
+# library(rstudioapi)
+removeTheme("Poolside")
+```
+
