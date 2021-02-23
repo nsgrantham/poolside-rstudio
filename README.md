@@ -12,7 +12,7 @@ Poolside
 ``` r
 # install.packages("rstudioapi")
 library(rstudioapi)
-poolside <- "https://github.com/nsgrantham/poolside-rstudio/blob/master/poolside.rstheme"
+poolside <- "https://raw.githubusercontent.com/nsgrantham/poolside-rstudio/main/poolside.rstheme"
 addTheme(poolside, apply = TRUE, force = TRUE)
 ```
 
