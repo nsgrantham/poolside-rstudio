@@ -5,55 +5,85 @@
 /* url: https://github.com/nsgrantham/poolside-rstudio */
 /* version: 1.0 */
 
+:root {
+  --background: #322F4D;
+  --foreground: #F2EDED;
+  --selection:  #62619D;
+  --operator:   #F7CBCA;
+  --comment:    #5A539C;
+  --red:        #F8B3B1;
+  --green:      #D7F4AB;
+  --yellow:     #FAD6A7;
+  --blue:       #A3DFFA;
+  --purple:     #B1AFFA;
+  --pink:       #DF9DFA;
+  --bg-lighter: #4B4675;
+  --bg-light:   #3F3B63;
+  --bg-dark:    #2A2742;
+}
+
+.rstudio-themes-dark-grey .rstheme_minimizedWindowObject table.rstheme_center {
+  background-color: var(--bg-light) !important;
+}
+
+/* ---- Editor ---- */
+
 /* Left-most column with line numbers */
-/* You probably want background to match .ace_editor background */
-/* You probably want color to match .ace_comment color */
 .ace_gutter {
-  background: #322F4D;
-  color: #5A539C;
+  background: var(--background);
+  color: var(--comment);
 }
 
 /* Margin (Preferences -> Code -> Display -> Show Margin) */
 .ace_print-margin {
   width: 1px;
-  background: #5A539C;
+  background: var(--comment);
 }
 
 /* Primary background and text colors */
-.ace_editor, .rstudio-themes-flat.ace_editor_theme .profvis-flamegraph, .rstudio-themes-flat.ace_editor_theme, .rstudio-themes-flat .ace_editor_theme {
-  background-color: #322F4D;
-  color: #F2EDED;
+.ace_editor {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.rstudio-themes-flat.ace_editor_theme {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.rstudio-themes-flat.ace_editor_theme .profvis-flamegraph {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.rstudio-themes-flat .ace_editor_theme {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+rstudio-themes-flat.editor_dark.ace_editor_theme a {
+  color: #FFF !important;
+}
+
+.rstudio-themes-flat .gwt-Label {
+  color: var(--foreground);
 }
 
 /* Vertical line cursor (Insert mode) */
 .ace_cursor {
-  /* background-color: #80F0AC !important; */
-  color: #9ADEF1;
+  color: var(--blue);
 }
 
 /* Block cursor (Visual mode) */
 /* Preferences -> Code -> Editing -> Keybindings: Vim */
 .normal-mode .ace_cursor {
-  border-color: #9ADEF1;
-  background-color: #9ADEF1B4;
-  color: #9ADEF1;
+  border: 0 !important;
+  background-color: var(--blue);
 }
 
-/* Box border cursor */
-/* When the block cursor is inactive it may turn into a box (solid border, transparent background) */
-.normal-mode .ace_hidden-cursors .ace_cursor {
-  border-color: #9ADEF1;
-}
-
-/* Selected text */
-/* You probably want this to be different from .ace_marker-layer .ace_active-line */
+/* Text selection */
 .ace_marker-layer .ace_selection {
-  background: #5A548C;
-}
-
-.ace_selection.ace_start {
-  box-shadow: 0 0 3px 0px #322F4D;
-  border-radius: 2px;
+  background-color: var(--selection);
 }
 
 .ace_marker-layer .ace_step {
@@ -62,108 +92,165 @@
 
 .ace_marker-layer .ace_bracket {
   margin: -1px 0 0 -1px;
-  border: 1px solid #5A539C;
+  border: 1px solid var(--background);
 }
 
 .ace_marker-layer .ace_active-line {
   background: #3F3B63;
 }
 
+.ace_marker-layer .ace_selected-word {
+  border: 1px solid #3F3B63;
+}
+
+/* Rmd code chunk background color */
+.ace_marker-layer .ace_foreign_line {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--bg-light);
+}
+
+.ace_marker-layer .ace_active_debug_line {
+  position: absolute;
+  z-index: -1;
+  background-color: #716993;
+}
+
+.ace_marker-layer .ace_find_line {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--bg-light);
+}
+
 .ace_gutter-active-line {
   background-color: #3F3B63;
 }
 
-.ace_marker-layer .ace_selected-word {
-  border: 1px solid #3F3B63
-}
-
-/* Don't know what this affects... */
+/* Two way arrow button when you collapse code */
 .ace_fold {
-  background-color: #80F0AC;
-  border-color: #F7CBCA;
+  background-color: var(--background);
+  border: 2px solid var(--background) !important;
 }
 
-/* Invisible characters (Preferences -> Code -> Display -> Show whitespace characters) */
-/* You probably want this to match .ace_comment */
-.ace_invisible {
-  color: #776FBD;
+/* Indents */
+.ace_indent-guide {
+  border-right: 1px solid var(--comment);
+  margin-right: -1px;
+}
+
+.ace_active-line ~ .ace_selection.ace_start {
+  background-color: var(--bg-light);
 }
 
 /* Keywords like `library`, `function`, `if`, `else`, `...`, `break` and others */
 /* Also affects Console inputs */
 .ace_keyword {
-  color: #F5B3B1;
+  color: var(--red);
 }
 
 /* Keyword operators like `<-`, `=`, `%in%`, `%>%`, and others */
 .ace_keyword.ace_operator {
-  color: #F7CBCA;
+  font-style: normal;
+  color: var(--operator);
 }
 
-/* Don't know what this affects... Seems to be overridden entirely by .ace_constant.ace_language */
-.ace_constant {
-  color: #9ADEF1;
+.ace_keyword.ace_other.ace_unit {
+  font-style: normal;
+  color: #c5a3ff;
 }
 
 /* Language constants like `TRUE`, `FALSE`, `NULL`, `Inf`, `NA`, and others */
 /* Also affects Console warnings */
 .ace_constant.ace_language {
-  color: #BDB2F9;
+  color: var(--purple);
 }
 
 /* Numbers */
 .ace_constant.ace_numeric {
-  color: #9ADEF1;
+  color: var(--pink);
 }
 
-/* ```{r ...} and ``` in Rmd code chunks */
-.ace_support.ace_function {
-  color: #9ADEF1;
+.ace_constant.ace_character {
+  color: #c5a3ff;
+}
+
+.ace_constant.ace_other {
+  color: var(--foreground);
+}
+
+.ace_support.ace_constant {
+  color: #c5a3ff;
+}
+
+.ace_support.ace_class {
+  font-style: italic;
+  color: #ff857f;
 }
 
 .ace_support.ace_type {
   color: #F7CBCA;
 }
 
+/* Parentheses (overridden by Rainbow Parentheses if enabled) */
+.ace_paren.ace_keyword.ace_operator {
+  color: var(--operator);
+}
+
+.ace_storage {
+  color: #C5A3FF;
+}
+
+.ace_storage.ace_type {
+  color: #C5A3FF;
+}
+
+.ace_invalid {
+  background-color: rgba(255, 133, 127, 0.5);
+}
+
+.ace_invalid.ace_deprecated {
+  background-color: rgba(197, 163, 255, 0.5);
+}
+
 /* Strings */
 .ace_string {
-  color: #D7F4AB;
+  color: var(--green);
 }
 
 /* Comments */
 .ace_comment {
-  color : #62619D;
+  color: var(--comment);
+}
+
+/* Invisible characters (Preferences -> Code -> Display -> Show whitespace characters) */
+.ace_invisible {
+  color: var(--comment);
 }
 
 /* Variables */
 .ace_variable {
-  color: #F7CBCA;
+  color: var(--red);
 }
 
-/* Keys in the YAML frontmatter of Rmd files like `title`, `author`, etc. */
-/* You probably want this to match .ace_keyword */
-.ace_meta.ace_tag {
-  color: #F5B3B1;
+.ace_variable.ace_parameter {
+  color: #c5a3ff;
 }
 
-/* Headings in Rmd files beginning with #, ##, ###, etc. */
-.ace_markup.ace_heading {
-  color: #F2A5CC;
+.ace_identifier {
+  color: var(--foreground);
+  background-color: inherit;
 }
 
-.ace_heading {
-  color: #F2A5CC;
+.ace_entity.ace_name.ace_function {
+  color: #c2ffdf; /* mint */
 }
 
-.ace_marker-layer .ace_active_debug_line {
-  color: #EC5C6E;
-  position: absolute;
-  z-index: -1;
+.ace_entity.ace_name.ace_tag {
+  color: #f8f8f0;
 }
 
-/* Past commands in the Console when pressing the Up key */
-.nocolor.ace_editor .ace_line span {
-  color: #9ADEF1 !important;
+.ace_entity.ace_other.ace_attribute-name {
+  color: #C5A3FF;
 }
 
 /* Highlight matching parentheses and brackets */
@@ -173,28 +260,430 @@
   background-color: rgba(128, 128, 128, 0.5);
 }
 
-/* Rmd code chunk background color */
-.ace_marker-layer .ace_foreign_line {
-  position: absolute;
-  z-index: -1;
-  background-color: #3F3B63;
-  /* background-color: #463F5A; */
-}
-
-.ace_marker-layer .ace_find_line {
-  position: absolute;
-  z-index: -1;
-  background-color: #5A4F66;
-}
-
 .ace_console_error {
   background-color: #5A4F66;
 }
 
+.ace_layer {
+  z-index: 4;
+}
+
+.ace_layer.ace_print-margin-layer {
+  z-index: 2;
+}
+
+.ace_layer.ace_marker-layer {
+  z-index: 1;
+}
+
+.ace_layer.ace_cursor-layer {
+  z-index: 3;
+}
+
+.ace_selection.ace_start {
+  box-shadow: 0 0 3px 0 var(--background);
+  border-radius: 2px;
+}
+
+
+/* Keys in the YAML frontmatter of Rmd files like `title`, `author`, etc. */
+.ace_meta.ace_tag {
+  color: var(--red);
+}
+
+/* Headings in Rmd files beginning with #, ##, ###, etc. */
+.ace_markup.ace_heading, .ace_markup.ace_heading ~ .ace_heading {
+  color: var(--pink);
+}
+
+/* ```{r ...} and ``` in Rmd code chunks */
+.ace_support.ace_function.ace_codebegin, .ace_support.ace_function.ace_codeend {
+  color: var(--blue);
+}
+
+/* Hyperlinks */
+.ace_markup.ace_href {
+  color: var(--blue);
+}
+
+/* Past commands in the Console when pressing the Up key */
+.nocolor.ace_editor .ace_line span {
+  color: var(--blue) !important;
+}
+
+.ace_marker-layer .ace_active_debug_line {
+  color: #EC5C6E;
+  position: absolute;
+  z-index: -1;
+}
+
+#rstudio_console_input .ace_marker-layer .ace_selection {
+  background: var(--bg-light);
+}
+
+
+/* ---- RStudio IDE ---- */
+
+/* #383448 bg-dark */
+/* #5A5475 background */
+/* #433f57 bg-light */
+/* #55506f bg-lighter  */
+/* #F8F8F2 */
+
+/* background */
+.rstudio-themes-flat .rstudio-themes-dark-grey {
+  background: var(--bg-dark) !important;
+  color: var(--foreground) !important;
+  /* collapsed toolbar on rstudio server */
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .rstudio-themes-background {
+  background: var(--bg-dark) !important;
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey [role="banner"] + [role="navigation"] > table > tbody > tr > td,
+.rstudio-themes-flat .rstudio-themes-dark-grey header + [role="navigation"] > table > tbody > tr > td {
+  background: var(--bg-dark);
+  border-color: var(--background);
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .rstudio-themes-border {
+  border-color: var(--background);
+}
+
+/* inactive tabs */
+table.rstheme_tabLayoutCenter,
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs,
+.rstheme_multiPodUtilityTabArea {
+  background: var(--bg-light) !important;
+}
+
+table.rstheme_tabLayoutCenter .gwt-Label,
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs .gwt-Label,
+.rstheme_multiPodUtilityTabArea .gwt-Label {
+  color: rgba(248, 248, 242, 0.6);
+}
+
+/* toolbar and selected tab */
+.rstudio-themes-flat .rstudio-themes-dark-grey .rstheme_center,
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs .gwt-TabLayoutPanelTab-selected table.rstheme_tabLayoutCenter {
+  background: var(--bg-lighter) !important;
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTab-selected .gwt-Label {
+  color: var(--foreground);
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTab:hover .rstheme_tabLayoutCenter {
+  background: var(--bg-light) !important;
+}
+
+.rstudio-themes-flat .rstheme_toolbarWrapper {
+  background: var(--bg-lighter) !important;
+}
+
+.rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {
+  color: var(--foreground) !important;
+}
+
+/* Splitters */
+.rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-HDragger, .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-SplitLayoutPanel-VDragger {
+  background: transparent !important;
+}
+
+/* Search */
+.rstudio-themes-flat .rstudio-themes-dark .search, .rstudio-themes-flat.rstudio-themes-dark-menus .search {
+  background: var(--bg-lighter) !important;
+}
+
+/* File name in "Find in Files" */
+.rstudio-themes-flat #rstudio_workbench_panel_find_in_files td[colspan="2"] {
+  color: #c2ffdf;
+}
+
+/* pane toolbars */
+.rstheme_secondaryToolbar, .rstudio-themes-flat .rstudio-themes-dark-grey .dataGridHeader {
+  background: var(--bg-lighter) !important;
+}
+
+/* menu background */
+.rstudio-themes-flat .popupMiddleCenter,
+.rstudio-themes-flat .menuPopupMiddleCenter,
+.rstudio-themes-flat .suggestPopupMiddleCenter {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.rstudio-themes-flat .popupMiddleCenter .item.item-selected,
+.rstudio-themes-flat .menuPopupMiddleCenter .item.item-selected,
+.rstudio-themes-flat .suggestPopupMiddleCenter .item.item-selected {
+  color: #F8F8F2 !important;
+  background: var(--bg-light) !important;
+}
+
+.rstudio-themes-flat .themedPopupPanel {
+  border: solid 1px rgba(194, 255, 223, 0.4);
+}
+
+.rstudio-themes-flat .themedPopupPanel ~ div.popupContent div:nth-child(1) {
+  border: solid 1px rgba(194, 255, 223, 0.4);
+}
+
+.rstudio-themes-flat .popupContent {
+  background: var(--background);
+  color: var(--foreground);
+  border-color: rgba(194, 255, 223, 0.4);
+}
+
+.rstudio-themes-flat .popupContent:not(.popupMiddleCenterInner) div div:nth-child(2) {
+  background-color: unset;
+  border: none;
+}
+
+.rstudio-themes-flat .popupContent + .rstudio-themes-scrollbars {
+  border-color: rgba(194, 255, 223, 0.4);
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent {
+  background: var(--background);
+  padding: 2px;
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent table {
+  background: var(--foreground);
+  border: 0;
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent table .gwt-Label {
+  color: var(--background);
+}
+
+.rstudio-themes-flat.rstudio-themes-dark-menus .gwt-MenuItem.gwt-MenuItem-selected, .rstudio-themes-flat.rstudio-themes-dark-menus .gwt-MenuItem.gwt-MenuItem-selected > table {
+  background: var(--bg-light);
+  color: var(--foreground);
+}
+
+/* datagrid */
+.rstudio-themes-dark .dataGridHeader,
+.rstudio-themes-dark tr[__gwt_header_row] > :-webkit-any(td, th),
+.rstudio-themes-dark .dataTables_info {
+  background-color: var(--background) !important;
+  border-color: var(--bg-light) !important;
+}
+
+/* hacky toolbars section */
+.rstudio-themes-flat .rstudio-themes-dark-grey {
+  /* this next one might not be needed anymore (at least after 1.4+) */
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .windowframe > div:last-child > div > div > div > div > div:not(.gwt-TabLayoutPanelTabs) {
+  background: var(--bg-light) !important;
+}
+
+.rstudio-themes-flat .rstudio-themes-dark-grey .windowframe > div:last-child > div > div > div:nth-child(3) > div {
+  background: var(--bg-light) !important;
+}
+
+/* Data Frame Preview */
+.dataTables_wrapper thead th {
+  background-color: var(--bg-light) !important;
+  color: var(--foreground) !important;
+}
+
+.dataTables_scrollBody table tbody td:first-child {
+  background: var(--bg-light) !important;
+  color: var(--foreground) !important;
+}
+
+.dataTables_info {
+  background: var(--bg-light) !important;
+  color: var(--foreground) !important;
+}
+
+/* scrollbars */
+.rstudio-themes-flat {
+  /* Works on Firefox */
+  scrollbar-width: auto;
+  scrollbar-color: var(--bg-lighter) transparent;
+  /* Works on Chrome, Edge, and Safari */
+}
+
+.rstudio-themes-flat ::-webkit-scrollbar {
+  width: auto;
+}
+
+.rstudio-themes-flat *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rstudio-themes-flat *::-webkit-scrollbar-thumb {
+  background-color: var(--bg-light);
+  border-radius: 0px;
+  border: 2px solid var(--background);
+}
+
+.rstudio-themes-flat *::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-lighter);
+}
+
+/* fix overly zealous css rules */
+.gwt-DialogBox-ModalDialog .dialogContent .gwt-Label {
+  color: #333333;
+}
+
+/* job progress bar */
+.rstheme_toolbarWrapper [role="progressbar"] > div, .windowframe [role="progressbar"] > div {
+  background-color: var(--green);
+}
+
+/* borders on toolbar under editor */
+.rstudio-themes-flat .rstudio-themes-dark table.rstudio-themes-background td > div:first-child {
+  border-color: var(--bg-dark) !important;
+}
+
+/* Borrowed from https://github.com/anthonynorth/rscodeio */
+/* splitters */
+.rstudio-themes-flat > .rstudio-themes-dark .gwt-SplitLayoutPanel-HDragger {
+  border-color: var(--bg-dark);
+}
+
+.rstudio-themes-flat > .rstudio-themes-dark .gwt-SplitLayoutPanel-VDragger {
+  border-color: var(--bg-dark);
+}
+
+.rstudio-themes-flat > .rstudio-themes-dark .gwt-SplitLayoutPanel td {
+  border-color: var(--background) !important;
+}
+
+/* window containers */
+.rstudio-themes-flat
+> .rstudio-themes-dark
+:-webkit-any(.windowframe, .rstheme_minimizedWindowObject)
+> div:last-child {
+  border-radius: 0;
+  border-color: var(--background);
+}
+
+/* main toolbar */
+.rstudio-themes-dark > div:last-child > div > div > .rstheme_toolbarWrapper,
+.rstudio-themes-dark [role="application"] > div > .rstheme_toolbarWrapper {
+  border-color: var(--bg-light);
+}
+
+/* toolbars */
+.rstudio-themes-dark .rstheme_toolbarWrapper,
+.rstudio-themes-dark .rstheme_secondaryToolbar {
+  border-color: var(--bg-light) !important;
+  border-radius: 0 !important;
+}
+
+/* other toolbars */
+.rstudio-themes-dark .rstudio-themes-background {
+  border-top-color: var(--bg-light) !important;
+  border-bottom-color: var(--bg-light) !important;
+  border-radius: 0 !important;
+}
+
+/* tabs container */
+.rstudio-themes-dark .gwt-TabLayoutPanelTabs,
+.rstudio-themes-dark .windowframe,
+.rstudio-themes-dark :-webkit-any(.rstheme_multiPodUtilityTabArea, .GD15MCFCCS, .GJQ3LUQCCS) {
+  background: var(--bg-light) !important;
+  border-color: var(--bg-light) !important;
+}
+
+/* tabs */
+.rstudio-themes-dark .gwt-TabLayoutPanelTab:not(.gwt-TabLayoutPanelTab-selected) .rstheme_tabLayoutCenter,
+.rstudio-themes-dark .rstheme_minimizedWindowObject .rstheme_center {
+  border-color: var(--bg-light) !important;
+  border-right: 1px solid var(--bg-light) !important;
+  border-radius: 0;
+}
+
+/* active tab */
+.rstudio-themes-dark .gwt-TabLayoutPanelTab.gwt-TabLayoutPanelTab-selected .rstheme_tabLayoutCenter {
+  border: none;
+}
+
+#rstudio_command_palette_search,
+#rstudio_command_palette_list [id^="rstudio_command_"],
+input#rstudio_command_palette_search {
+  background-color: var(--background);
+  border: none;
+}
+
+#rstudio_command_palette_list {
+  background-color: var(--background);
+  border-color: var(--background);
+}
+
+.rstudio-themes-flat .rstudio-themes-border {
+  border-color: var(--background);
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"] table .gwt-Label,
+.rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"] table td {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover, .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover [id^="rstudio_command_entry"], .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover table .gwt-Label, .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [id*="rstudio_command_"]:hover table td {
+  background-color: #655f84;
+}
+
+.rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [aria-selected="true"], .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [aria-selected="true"] [id^="rstudio_command_entry"], .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [aria-selected="true"] table .gwt-Label, .rstudio-themes-flat .gwt-PopupPanel .popupContent #rstudio_command_palette_list [aria-selected="true"] table td {
+  background-color: #716993;
+}
+
+input#rstudio_command_palette_search {
+  padding: 10px 0;
+  width: 580px;
+  border: none;
+}
+
+.js-focus-visible input#rstudio_command_palette_search {
+  outline-offset: 5px !important;
+}
+
+.rstudio-themes-flat .popupContent [id^="rstudio_command"] [id^="rstudio_command_entry_"] .gwt-Label, .rstudio-themes-flat .popupContent [id^="rstudio_command"] [id^="rstudio_command_entry_"] .gwt-Label span {
+  border: none;
+}
+
+
+/* Rainbow Parenthesis */
+
+.rstudio-themes-dark .ace_paren_color_0 {
+  color: var(--red);
+}
+
+.rstudio-themes-dark .ace_paren_color_1 {
+  color: var(--yellow);
+}
+
+.rstudio-themes-dark .ace_paren_color_2 {
+  color: var(--green);
+}
+
+.rstudio-themes-dark .ace_paren_color_3 {
+  color: var(--blue);
+}
+
+.rstudio-themes-dark .ace_paren_color_4 {
+  color: var(--purple);
+}
+
+.rstudio-themes-dark .ace_paren_color_5 {
+  color: var(--pink);
+}
+
+.rstudio-themes-dark .ace_paren_color_6 {
+  color: var(--foreground);
+}
+
 /* Console pane */
 .terminal {
-  background-color: #322f4d;
-  color: #f7cbca;
+  background-color: var(--background);
+  color: var(--foreground);
   font-feature-settings: "liga" 0;
   position: relative;
   user-select: none;
@@ -220,8 +709,8 @@
 }
 
 .terminal .xterm-selection div {
-   position: absolute;
-   background-color: #CCC;
+  position: absolute;
+  background-color: #CCC;
 }
 
 .terminal .xterm-viewport {
@@ -235,22 +724,22 @@
 /* Under Conflicts, X's use .xtermColor1 (red), functions use .xtermColor2 (green) */
 /* The terminal supports 16 base colors (.xtermColor0 to .xtermColor15) */
 /* You may edit them, but do not edit .xtermColor16 to .xtermColor256   */
-/* Color  0 = Normal Black  */
-/* Color  1 = Normal Red    */
-/* Color  2 = Normal Green  */
-/* Color  3 = Normal Yellow */
-/* Color  4 = Normal Blue   */
-/* Color  5 = Normal Purple */
-/* Color  6 = Normal Cyan   */
-/* Color  7 = Normal White  */
-/* Color  8 = Bright Black  */
-/* Color  9 = Bright Red    */
-/* Color 10 = Bright Green  */
-/* Color 11 = Bright Yellow */
-/* Color 12 = Bright Blue   */
-/* Color 13 = Bright Purple */
-/* Color 14 = Bright Cyan   */
-/* Color 15 = Bright White  */
+/* Color  0 = Normal Black   */
+/* Color  1 = Normal Red     */
+/* Color  2 = Normal Green   */
+/* Color  3 = Normal Yellow  */
+/* Color  4 = Normal Blue    */
+/* Color  5 = Normal Magenta */
+/* Color  6 = Normal Cyan    */
+/* Color  7 = Normal White   */
+/* Color  8 = Bright Black   */
+/* Color  9 = Bright Red     */
+/* Color 10 = Bright Green   */
+/* Color 11 = Bright Yellow  */
+/* Color 12 = Bright Blue    */
+/* Color 13 = Bright Magenta */
+/* Color 14 = Bright Cyan    */
+/* Color 15 = Bright White   */
 .xtermInvertColor { color: #322f4d; }
 .xtermInvertBgColor { background-color: #f7cbca; }
 .xtermBold { font-weight: bold; }
@@ -261,34 +750,34 @@
 .xtermStrike { text-decoration: line-through; }
 .xtermColor0 { color: #2e3436 !important; }
 .xtermBgColor0 { background-color: #2e3436; }
-.xtermColor1 { color: #EC5C6E !important; }
-.xtermBgColor1 { background-color: #EC5C6E; }
-.xtermColor2 { color: #80F0AC !important; }
-.xtermBgColor2 { background-color: #80F0AC; }
-.xtermColor3 { color: #F8D2B0 !important; }
-.xtermBgColor3 { background-color: #F8D2B0; }
-.xtermColor4 { color: #9ADEF1 !important; }
-.xtermBgColor4 { background-color: #9ADEF1; }
-.xtermColor5 { color: #BDB2F9 !important; }
-.xtermBgColor5 { background-color: #BDB2F9; }
-.xtermColor6 { color: #F2A5CC !important; }
-.xtermBgColor6 { background-color: #F2A5CC; }
+.xtermColor1 { color: var(--red) !important; }
+.xtermBgColor1 { background-color: var(--red); }
+.xtermColor2 { color: var(--green) !important; }
+.xtermBgColor2 { background-color: var(--green); }
+.xtermColor3 { color: var(--yellow) !important; }
+.xtermBgColor3 { background-color: var(--yellow); }
+.xtermColor4 { color: var(--blue) !important; }
+.xtermBgColor4 { background-color: var(--blue); }
+.xtermColor5 { color: var(--purple) !important; }
+.xtermBgColor5 { background-color: var(--purple); }
+.xtermColor6 { color: var(--pink) !important; }
+.xtermBgColor6 { background-color: var(--pink); }
 .xtermColor7 { color: #d3d7cf !important; }
 .xtermBgColor7 { background-color: #d3d7cf; }
 .xtermColor8 { color: #555753 !important; }
 .xtermBgColor8 { background-color: #555753; }
-.xtermColor9 { color: #EC5C6E !important; }
-.xtermBgColor9 { background-color: #EC5C6E; }
-.xtermColor10 { color: #80F0AC !important; }
-.xtermBgColor10 { background-color: #80F0AC; }
-.xtermColor11 { color: #F8D2B0 !important; }
-.xtermBgColor11 { background-color: #F8D2B0; }
-.xtermColor12 { color: #9ADEF1 !important; }
-.xtermBgColor12 { background-color: #9ADEF1; }
-.xtermColor13 { color: #BDB2F9 !important; }
-.xtermBgColor13 { background-color: #BDB2F9; }
-.xtermColor14 { color: #F2A5CC !important; }
-.xtermBgColor14 { background-color: #F2A5CC; }
+.xtermColor9 { color: var(--red) !important; }
+.xtermBgColor9 { background-color: var(--red); }
+.xtermColor10 { color: var(--green) !important; }
+.xtermBgColor10 { background-color: var(--green); }
+.xtermColor11 { color: var(--yellow) !important; }
+.xtermBgColor11 { background-color: var(--yellow); }
+.xtermColor12 { color: var(--blue) !important; }
+.xtermBgColor12 { background-color: var(--blue); }
+.xtermColor13 { color: var(--purple) !important; }
+.xtermBgColor13 { background-color: var(--purple); }
+.xtermColor14 { color: var(--pink) !important; }
+.xtermBgColor14 { background-color: var(--pink); }
 .xtermColor15 { color: #eeeeec !important; }
 .xtermBgColor15 { background-color: #eeeeec; }
 .xtermColor16 { color: #000000 !important; }
@@ -771,32 +1260,3 @@
 .xtermBgColor254 { background-color: #e4e4e4; }
 .xtermColor255 { color: #eeeeee !important; }
 .xtermBgColor255 { background-color: #eeeeee; }
-
-.rstudio-themes-flat.editor_dark.ace_editor_theme a {
-   color: #FFF !important;
-}
-
-.ace_layer {
-   z-index: 3;
-}
-
-.ace_layer.ace_print-margin-layer {
-   z-index: 2;
-}
-
-.ace_layer.ace_marker-layer {
-   z-index: 1;
-}
-
-.rstudio-themes-flat.rstudio-themes-dark-menus .ace_editor.ace_autocomplete {
-   background: #2f3941;
-   border: solid 1px #4e5c68 !important;
-   color: #f0f0f0;
-}
-
-.rstudio-themes-flat.rstudio-themes-dark-menus .ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line,
-.rstudio-themes-flat.rstudio-themes-dark-menus .ace_editor.ace_autocomplete .ace_marker-layer .ace_line-hover {
-   background: rgba(255, 255, 255, 0.15);
-   border: none
-}
-
