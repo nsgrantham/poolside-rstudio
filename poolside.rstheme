@@ -17,8 +17,8 @@
   --blue:       #A3DFFA;
   --purple:     #B1AFFA;
   --pink:       #DF9DFA;
-  --bg-lighter: #4B4675;
-  --bg-light:   #3F3B63;
+  --bg-lighter: #3F3B63;
+  --bg-light:   #322F4D;
   --bg-dark:    #2A2742;
 }
 
@@ -107,7 +107,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 .ace_marker-layer .ace_foreign_line {
   position: absolute;
   z-index: -1;
-  background-color: var(--bg-light);
+  background-color: var(--bg-lighter);
 }
 
 .ace_marker-layer .ace_active_debug_line {
@@ -123,7 +123,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_gutter-active-line {
-  background-color: #3F3B63;
+  background-color: var(--bg-light);
 }
 
 /* Two way arrow button when you collapse code */
@@ -156,7 +156,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 
 .ace_keyword.ace_other.ace_unit {
   font-style: normal;
-  color: #c5a3ff;
+  color: var(--yellow);
 }
 
 /* Language constants like `TRUE`, `FALSE`, `NULL`, `Inf`, `NA`, and others */
@@ -171,7 +171,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_constant.ace_character {
-  color: #c5a3ff;
+  color: var(--yellow);
 }
 
 .ace_constant.ace_other {
@@ -179,16 +179,16 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_support.ace_constant {
-  color: #c5a3ff;
+  color: var(--yellow);
 }
 
 .ace_support.ace_class {
   font-style: italic;
-  color: #ff857f;
+  color: var(--yellow);
 }
 
 .ace_support.ace_type {
-  color: #F7CBCA;
+  color: var(--operator);
 }
 
 /* Parentheses (overridden by Rainbow Parentheses if enabled) */
@@ -197,11 +197,11 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_storage {
-  color: #C5A3FF;
+  color: var(--yellow);
 }
 
 .ace_storage.ace_type {
-  color: #C5A3FF;
+  color: var(--yellow);
 }
 
 .ace_invalid {
@@ -233,7 +233,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_variable.ace_parameter {
-  color: #c5a3ff;
+  color: var(--yellow);
 }
 
 .ace_identifier {
@@ -242,15 +242,15 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_entity.ace_name.ace_function {
-  color: #c2ffdf; /* mint */
+  color: var(--pink);
 }
 
 .ace_entity.ace_name.ace_tag {
-  color: #f8f8f0;
+  color: var(--foreground);
 }
 
 .ace_entity.ace_other.ace_attribute-name {
-  color: #C5A3FF;
+  color: var(--yellow);
 }
 
 /* Highlight matching parentheses and brackets */
@@ -261,7 +261,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_console_error {
-  background-color: #5A4F66;
+  background-color: var(--bg-lighter);
 }
 
 .ace_layer {
@@ -297,7 +297,8 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 /* ```{r ...} and ``` in Rmd code chunks */
-.ace_support.ace_function.ace_codebegin, .ace_support.ace_function.ace_codeend {
+/* Also parameter names in Roxygen */
+.ace_support.ace_function {
   color: var(--blue);
 }
 
@@ -312,7 +313,7 @@ rstudio-themes-flat.editor_dark.ace_editor_theme a {
 }
 
 .ace_marker-layer .ace_active_debug_line {
-  color: #EC5C6E;
+  color: var(--red);
   position: absolute;
   z-index: -1;
 }
@@ -383,6 +384,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {
+  /*color: var(--foreground) !important;*/
   color: var(--foreground) !important;
 }
 
@@ -417,7 +419,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 .rstudio-themes-flat .popupMiddleCenter .item.item-selected,
 .rstudio-themes-flat .menuPopupMiddleCenter .item.item-selected,
 .rstudio-themes-flat .suggestPopupMiddleCenter .item.item-selected {
-  color: #F8F8F2 !important;
+  color: var(--foreground) !important;
   background: var(--bg-light) !important;
 }
 
@@ -468,7 +470,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 .rstudio-themes-dark tr[__gwt_header_row] > :-webkit-any(td, th),
 .rstudio-themes-dark .dataTables_info {
   background-color: var(--background) !important;
-  border-color: var(--bg-light) !important;
+  border-color: var(--bg-lighter) !important;
 }
 
 /* hacky toolbars section */
@@ -517,13 +519,13 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat *::-webkit-scrollbar-thumb {
-  background-color: var(--bg-light);
+  background-color: var(--bg-lighter);
   border-radius: 0px;
   border: 2px solid var(--background);
 }
 
 .rstudio-themes-flat *::-webkit-scrollbar-thumb:hover {
-  background-color: var(--bg-lighter);
+  background-color: var(--selection);
 }
 
 /* fix overly zealous css rules */
