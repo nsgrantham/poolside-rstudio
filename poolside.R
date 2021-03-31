@@ -15,6 +15,25 @@ theme_palette <- list(
   white  = "#F2EDED"
 )
 
+terminal_colors <- rstheme_terminal_colors(
+  black = "$black",
+  black_bright = "$black",
+  red = "$red",
+  red_bright = "$red",
+  green = "$green",
+  green_bright = "$green",
+  yellow = "$yellow",
+  yellow_bright = "$yellow",
+  blue = "$blue",
+  blue_bright = "$blue",
+  magenta = "$purple",
+  magenta_bright = "$purple",
+  cyan = "$pink",
+  cyan_bright = "$pink",
+  white = "$white",
+  white_bright = "$white"
+)
+
 rainbow_parentheses <- rstheme_rainbow_parentheses(
   ui_paren_0 = "$red",
   ui_paren_1 = "$yellow",
@@ -58,12 +77,14 @@ rstheme(
   rmd_heading_weight = "500",
   rmd_chunk_header = "$blue",
   rmd_href = "$yellow",
-  rainbow_parentheses
+  rainbow_parentheses,
+  terminal_colors
 )
 
 theme_other <- glue(
 "
-/* Manual CSS edits added from poolside.R */
+
+/* Extra CSS edits made from poolside.R */
 
 .rstudio-themes-flat
 > .rstudio-themes-dark
@@ -109,134 +130,6 @@ theme_other <- glue(
 /* Active tab */
 .rstudio-themes-dark .gwt-TabLayoutPanelTab.gwt-TabLayoutPanelTab-selected .rstheme_tabLayoutCenter {
   border-color: {{theme_palette$ui_background}} !important;
-}
-
-.xtermColor0 {
-  color: {{theme_palette$black}} !important;
-}
-
-.xtermBgColor0 {
-  background-color: {{theme_palette$black}};
-}
-
-.xtermColor1 {
-  color: {{theme_palette$red}} !important;
-}
-
-.xtermBgColor1 {
-  background-color: {{theme_palette$red}};
-}
-
-.xtermColor2 {
-  color: {{theme_palette$green}} !important;
-}
-
-.xtermBgColor2 {
-  background-color: {{theme_palette$green}};
-}
-
-.xtermColor3 {
-  color: {{theme_palette$yellow}} !important;
-}
-
-.xtermBgColor3 {
-  background-color: {{theme_palette$yellow}};
-}
-
-.xtermColor4 {
-  color: {{theme_palette$blue}} !important;
-}
-
-.xtermBgColor4 {
-  background-color: {{theme_palette$blue}};
-}
-
-.xtermColor5 {
-  color: {{theme_palette$purple}} !important;
-}
-
-.xtermBgColor5 {
-  background-color: {{theme_palette$purple}};
-}
-
-.xtermColor6 {
-  color: {{theme_palette$pink}} !important;
-}
-
-.xtermBgColor6 {
-  background-color: {{theme_palette$pink}};
-}
-
-.xtermColor7 {
-  color: {{theme_palette$white}} !important;
-}
-
-.xtermBgColor7 {
-  background-color: {{theme_palette$white}};
-}
-
-.xtermColor8 {
-  color: {{theme_palette$black}} !important;
-}
-
-.xtermBgColor8 {
-  background-color: {{theme_palette$black}};
-}
-
-.xtermColor9 {
-  color: {{theme_palette$red}} !important;
-}
-
-.xtermBgColor9 {
-  background-color: {{theme_palette$red}};
-}
-
-.xtermColor10 {
-  color: {{theme_palette$green}} !important;
-}
-
-.xtermBgColor10 {
-  background-color: {{theme_palette$green}};
-}
-
-.xtermColor11 {
-  color: {{theme_palette$yellow}} !important;
-}
-
-.xtermBgColor11 {
-  background-color: {{theme_palette$yellow}};
-}
-
-.xtermColor12 {
-  color: {{theme_palette$blue}} !important;
-}
-
-.xtermBgColor12 {
-  background-color: {{theme_palette$blue}};
-}
-
-.xtermColor13 {
-  color: {{theme_palette$purple}} !important;
-}
-
-.xtermBgColor13 {
-  background-color: {{theme_palette$purple}};
-}
-
-.xtermColor14 {
-  color: {{theme_palette$pink}} !important;
-}
-
-.xtermBgColor14 {
-  background-color: {{theme_palette$pink}};
-}
-
-.xtermColor15 {
-  color: {{theme_palette$white}} !important;
-}
-
-.xtermBgColor15 {
-  background-color: {{theme_palette$white}};
 }
 
 ", .open = "{{", .close = "}}")

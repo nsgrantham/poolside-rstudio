@@ -13,7 +13,7 @@ _A virtual vacation where the sun never sets._
 
 ## Dive in
 
-```{r}
+```{r results='hide'}
 # install.packages("rstudioapi")
 library(rstudioapi)
 poolside <- "https://raw.githubusercontent.com/nsgrantham/poolside-rstudio/main/poolside.rstheme"
@@ -23,7 +23,7 @@ addTheme(poolside, apply = TRUE, force = TRUE)
 ## Dry off
 
 ```{r results='hide'}
-# library(rstudioapi)
-removeTheme("Poolside")
+library(rstudioapi)
+removeTheme("Poolside {rsthemes}")
 ```
 

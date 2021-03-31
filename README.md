@@ -16,11 +16,9 @@ poolside <- "https://raw.githubusercontent.com/nsgrantham/poolside-rstudio/main/
 addTheme(poolside, apply = TRUE, force = TRUE)
 ```
 
-    ## [1] "Poolside"
-
 ## Dry off
 
 ``` r
-# library(rstudioapi)
-removeTheme("Poolside")
+library(rstudioapi)
+removeTheme("Poolside {rsthemes}")
 ```
