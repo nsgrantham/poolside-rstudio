@@ -5,7 +5,7 @@ Poolside
 
 *A virtual vacation where the sun never sets.*
 
-![poolside.rstheme and poolside.fm](poolside.png)
+![RStudio with the Poolside theme](poolside-screenshot.png)
 
 ## Dive in
 
