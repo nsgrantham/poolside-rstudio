@@ -3,11 +3,6 @@ library(rstudioapi)
 library(glue)
 
 theme_palette <- list(
-  #bg_darker = "#26253c",
-  #bg_dark = "#2d2d48",
-  #bg = "#353454",
-  #bg_light = "#3d3c60",
-  #bg_lighter = "#4c4b78",
   bg_darker = "#1e1e30",
   bg_dark = "#25253c",
   bg = "#2d2d48",
@@ -15,8 +10,8 @@ theme_palette <- list(
   bg_lighter = "#3c3c60", 
   fg = "#f2f2f7",
   fg_alt = "#facbca",
-  comment = "#5a5a90",
-  black  = "#26253c",
+  comment = "#62619D",
+  black  = "#25253c",
   red    = "#f78db9",
   green  = "#d1f79c",
   yellow = "#f7d19c",
@@ -68,11 +63,11 @@ rstheme(
   ui_cursor = "transparentize($fg_alt, 0.5)",
   ui_invisible = "transparentize($comment, 0.5)",
   ui_margin_line = "transparentize($comment, 0.8)",
-  ui_gutter_foreground = "transparentize($comment, 0.5)",
+  ui_gutter_foreground = "transparentize($comment, 0.3)",
   ui_selection = "transparentize($fg_alt, 0.9)",
   ui_rstudio_background = "$bg_darker",
   ui_line_active = "lighten($rmd_chunk_background, 3%)",
-  ui_rstudio_tabs_active_background = "$bg_lighter",
+  ui_rstudio_tabs_active_background = "$bg_light",
   ui_rstudio_tabs_inactive_background = "$bg_dark",
   code_string = "$green",
   code_function = "$blue",
@@ -88,8 +83,8 @@ rstheme(
   rmd_chunk_background = "lighten($bg, 3%)",
   rmd_heading_foreground = "$pink",
   rmd_heading_weight = "500",
-  rmd_chunk_header = "$blue",
-  rmd_href = "$yellow",
+  rmd_chunk_header = "lighten($comment, 15%)",
+  rmd_href = "$blue",
   rainbow_parentheses,
   terminal_colors
 )
@@ -284,6 +279,11 @@ theme_other <- glue(
 .rstudio-themes-dark .GND-IWGDL1, .rstudio-themes-dark .GND-IWGDM1 {
   color: {{ theme_palette$fg }};
   background-color: {{ theme_palette$bg_light }};
+}
+
+/* Muted filename next to headings/objects in command palette */
+.GND-IWGDKRB {
+  color: {{ theme_palette$comment }} !important;
 }
 
 ", .open = "{{", .close = "}}")

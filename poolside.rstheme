@@ -2,12 +2,12 @@
 /* rs-theme-is-dark: TRUE */
 .ace_gutter {
   background: #2d2d48;
-  color: rgba(90, 90, 144, 0.5);
+  color: rgba(98, 97, 157, 0.7);
 }
 
 .ace_print-margin {
   width: 2px;
-  background: rgba(90, 90, 144, 0.2);
+  background: rgba(98, 97, 157, 0.2);
 }
 
 .ace_editor {
@@ -98,7 +98,7 @@
 .ace_indent-guide {
   display: inline-block;
   height: 100%;
-  box-shadow: 1px 0 0 rgba(90, 90, 144, 0.5);
+  box-shadow: 1px 0 0 rgba(98, 97, 157, 0.5);
 }
 
 .ace_active-line ~ .ace_selection.ace_start {
@@ -178,11 +178,11 @@
 }
 
 .ace_comment {
-  color: #5a5a90;
+  color: #62619D;
 }
 
 .ace_invisible {
-  color: rgba(90, 90, 144, 0.5);
+  color: rgba(98, 97, 157, 0.5);
 }
 
 .ace_variable {
@@ -252,11 +252,11 @@
 }
 
 .ace_support.ace_function.ace_codebegin, .ace_support.ace_function.ace_codeend {
-  color: #8deef7;
+  color: #9190ba;
 }
 
 .ace_markup.ace_href {
-  color: #f7d19c;
+  color: #8deef7;
 }
 
 .nocolor.ace_editor .ace_line span {
@@ -305,7 +305,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 /* toolbar and selected tab */
 .rstudio-themes-flat .rstudio-themes-dark-grey .rstheme_center,
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTabs .gwt-TabLayoutPanelTab-selected table.rstheme_tabLayoutCenter {
-  background: #3c3c60 !important;
+  background: #353454 !important;
 }
 
 .rstudio-themes-flat .rstudio-themes-dark-grey .gwt-TabLayoutPanelTab-selected .gwt-Label {
@@ -317,7 +317,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .rstudio-themes-flat .rstheme_toolbarWrapper {
-  background: #3c3c60 !important;
+  background: #353454 !important;
 }
 
 .rstudio-themes-flat .rstheme_toolbarWrapper button, .rstudio-themes-flat .rstheme_toolbarWrapper a, .rstudio-themes-flat .rstheme_toolbarWrapper div {
@@ -331,7 +331,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 .rstudio-themes-flat .rstudio-themes-dark .search, .rstudio-themes-flat.rstudio-themes-dark-menus .search {
   /* search */
-  background: #3c3c60 !important;
+  background: #353454 !important;
 }
 
 .rstudio-themes-flat #rstudio_workbench_panel_find_in_files td[colspan="2"] {
@@ -341,7 +341,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 /* pane toolbars */
 .rstheme_secondaryToolbar, .rstudio-themes-flat .rstudio-themes-dark-grey .dataGridHeader {
-  background: #3c3c60 !important;
+  background: #353454 !important;
 }
 
 /* menu background */
@@ -424,17 +424,17 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 /* Data Frame Preview */
 .dataTables_wrapper thead th {
-  background-color: #323250 !important;
+  background-color: #2b2a44 !important;
   color: #f2f2f7 !important;
 }
 
 .dataTables_scrollBody table tbody td:first-child {
-  background: #323250 !important;
+  background: #2b2a44 !important;
   color: #f2f2f7 !important;
 }
 
 .dataTables_info {
-  background: #323250 !important;
+  background: #2b2a44 !important;
   color: #f2f2f7 !important;
 }
 
@@ -558,11 +558,11 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .xtermColor0 {
-  color: #5a5a90 !important;
+  color: #62619D !important;
 }
 
 .xtermBgColor0 {
-  background-color: #5a5a90;
+  background-color: #62619D;
 }
 
 .xtermColor1 {
@@ -622,11 +622,11 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 }
 
 .xtermColor8 {
-  color: #5a5a90 !important;
+  color: #62619D !important;
 }
 
 .xtermBgColor8 {
-  background-color: #5a5a90;
+  background-color: #62619D;
 }
 
 .xtermColor9 {
@@ -2669,7 +2669,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #5a5a90;
+  color: #62619D;
 }
 
 .token.punctuation {
@@ -2729,7 +2729,7 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 
 /* Tooltip hover text '(click to run)' on rlang::last_trace() */
 .GND-IWGDDK {
-  color: #5a5a90;
+  color: #62619D;
 }
 
 /* Column filters in data table view */
@@ -2821,5 +2821,10 @@ table.rstheme_tabLayoutCenter .gwt-Label,
 .rstudio-themes-dark .GND-IWGDL1, .rstudio-themes-dark .GND-IWGDM1 {
   color: #f2f2f7;
   background-color: #353454;
+}
+
+/* Muted filename next to headings/objects in command palette */
+.GND-IWGDKRB {
+  color: #62619D !important;
 }
 

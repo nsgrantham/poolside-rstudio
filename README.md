@@ -3,7 +3,7 @@ Poolside
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-*A virtual vacation where the sun never sets.*
+*An RStudio theme where the sun never sets.*
 
 ## Dive in
 
